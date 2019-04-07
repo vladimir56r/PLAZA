@@ -209,13 +209,13 @@
     <value>201, 0, 119</value>
   </data>
   <data name="floatingPictureToolsFormatPage1.Text" xml:space="preserve">
-    <value>FORMAT</value>
+    <value>Формат</value>
   </data>
   <data name="homeRibbonPage1.Text" xml:space="preserve">
-    <value>HOME</value>
+    <value>Главная</value>
   </data>
   <data name="insertRibbonPage1.Text" xml:space="preserve">
-    <value>INSERT</value>
+    <value>Вставка</value>
   </data>
   <data name="ribbonControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>901, 143</value>
@@ -325,9 +325,9 @@
   <data name="icbPriority.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v16.1">
     <value>Combo</value>
   </data>
-  <metadata name="icEditors.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="icEditors.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>469, 17</value>
-  </metadata>
+  </data>
   <data name="icEditors.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v16.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxNi4xLCBWZXJzaW9uPTE2LjEu
@@ -728,9 +728,9 @@
   <data name="&gt;&gt;splitContainerControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="icCategory.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="icCategory.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>359, 17</value>
-  </metadata>
+  </data>
   <data name="icCategory.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v16.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxNi4xLCBWZXJzaW9uPTE2LjEu
@@ -782,12 +782,12 @@
         L9nZ2Z+ysrJeECwK/pfAK78Aq3pVrx9RlXcAAAAASUVORK5CYIIL
 </value>
   </data>
-  <metadata name="richEditBarController1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="richEditBarController1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="dxValidationProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="dxValidationProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>188, 17</value>
-  </metadata>
+  </data>
   <data name="textEdit1.Location" type="System.Drawing.Point, System.Drawing">
     <value>104, 450</value>
   </data>
@@ -815,9 +815,9 @@
   <data name="lciCategory.Text" xml:space="preserve">
     <value>Группа:</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>

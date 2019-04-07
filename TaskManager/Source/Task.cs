@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaskManager.Source.Utils;
 
 namespace TaskManager.Source.Data
 {
@@ -180,5 +181,46 @@ namespace TaskManager.Source.Data
 			info.ErrorType = errorType;
 		}
 		#endregion
+	}
+	[Serializable]
+	public class TaskBase
+	{
+		string passHash;
+		/// <summary>
+		/// Array with tasks
+		/// </summary>
+		public List<Task> Tasks;
+		/// <summary>
+		/// Metadata for tasks base
+		/// </summary>
+		public object MetaData { get; set; }
+		public string FileName { get; set; }
+		public string Password { set { passHash = MD5Provider.GetHash(value); } }
+		public TaskBase(string password)
+		{
+			passHash = MD5Provider.GetHash(password);
+			Tasks = new List<Task>();
+		}
+		public bool CheckPassword(string password)
+		{
+			return MD5Provider.GetHash(password) == passHash;
+		}
+		public bool Save() => Save(FileName);
+		public bool Save(string FileName)
+		{
+			this.FileName = FileName;
+			return SerializationProvider.SaveObjectToFile(FileName, this);
+		}
+		public bool Load(string FileName, string Password)
+		{
+			TaskBase tmpBase = SerializationProvider.LoadObjectFromFile(FileName) as TaskBase;
+			if( tmpBase == null || MD5Provider.GetHash(Password) != tmpBase.passHash )
+				return false;
+			this.FileName = FileName;
+			passHash = tmpBase.passHash;
+			MetaData = tmpBase.MetaData;
+			Tasks = tmpBase.Tasks;
+			return true;
+		}
 	}
 }

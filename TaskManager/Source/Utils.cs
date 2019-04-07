@@ -13,7 +13,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 using TaskManager.Source.Data;
 
@@ -34,6 +39,69 @@ namespace TaskManager.Source.Utils
 		/// </summary>
 		public static string Caption { get { return $"{Name} (build {Version})"; } }
 	}
+	public static class MD5Provider
+	{
+		public static string GetHash(string input)
+		{
+			// Use input string to calculate MD5 hash
+			using( MD5 md5 = MD5.Create() )
+			{
+				byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+				byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+				// Convert the byte array to hexadecimal string
+				StringBuilder sb = new StringBuilder();
+				for( int i = 0; i < hashBytes.Length; i++ )
+				{
+					sb.Append(hashBytes[i].ToString("X2"));
+				}
+				return sb.ToString();
+			}
+		}
+	}
+	public static class SerializationProvider
+	{
+		public static bool SaveObjectToFile(string fileName, object serializableObject)
+		{
+			using( var Writer = new FileStream(fileName, FileMode.OpenOrCreate) )
+			{
+				using( GZipStream stream = new GZipStream(Writer, CompressionMode.Compress) )
+				{
+					try
+					{
+						var BF = new BinaryFormatter();
+						BF.Serialize(stream, serializableObject);
+						return true;
+					}
+					catch( Exception error )
+					{
+						MessageBox.Show(error.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+					return false;
+				}
+			}
+		}
+		public static object LoadObjectFromFile(string fileName)
+		{
+			using( var Reader = new FileStream(fileName, FileMode.Open) )
+			{
+				using( GZipStream stream = new GZipStream(Reader, CompressionMode.Decompress) )
+				{
+					try
+					{
+						var BF = new BinaryFormatter();
+						return BF.Deserialize(stream);
+					}
+					catch( Exception error )
+					{
+						MessageBox.Show(error.Message, ProgramData.Caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+			}
+			return null;
+		}
+	}
+
 	public class TagResources
 	{
 		public const string TaskList = "TaskList";

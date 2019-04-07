@@ -6,6 +6,7 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using TaskManager.Source.Forms;
+using DevExpress.XtraSplashScreen;
 
 namespace TaskManager
 {
@@ -20,7 +21,7 @@ namespace TaskManager
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			BonusSkins.Register();
+			//BonusSkins.Register();
 			SkinManager.EnableFormSkins();
 			UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 			Application.Run(new MainForm());

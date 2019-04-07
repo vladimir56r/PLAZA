@@ -1,4 +1,5 @@
-﻿using DevExpress.Utils;
+﻿using DevExpress.Data.Filtering;
+using DevExpress.Utils;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGrid.Views.Base;
@@ -6,6 +7,8 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using TaskManager.Source.Data;
 using TaskManager.Source.Utils;
@@ -14,7 +17,7 @@ namespace TaskManager.Source.Forms
 {
 	public partial class MainForm : DevExpress.XtraEditors.XtraForm
 	{
-		List<Task> tasks = new List<Task>();
+		TaskBase taskBase = new TaskBase(string.Empty);
 		Task CurrentTask
 		{
 			get
@@ -23,15 +26,24 @@ namespace TaskManager.Source.Forms
 				return gridView1.GetRow(gridView1.FocusedRowHandle) as Task;
 			}
 		}
+		const string DefaultTaskBaseFName = @"bin\taskbases\TaskBase.tb";
 		public MainForm()
 		{
-			SplashScreenManager.ShowForm(this, typeof(SplashForm), true, false, false, 1000);
+			SplashScreenManager.ShowForm(this, typeof(SplashForm), true, false, false);
 			InitializeComponent();
-			gridControl1.DataSource = tasks;
+			if( File.Exists(DefaultTaskBaseFName) )
+				taskBase.Load(DefaultTaskBaseFName, string.Empty);
+			else
+				taskBase.Save(DefaultTaskBaseFName);
+			gridControl1.DataSource = taskBase.Tasks;
 			EditorUtils.CreateTaskStatusImageComboBox(repositoryItemImageComboBox3);
 			EditorUtils.CreateFlagStatusImageComboBox(repositoryItemImageComboBox5);
 			EditorUtils.InitPriorityComboBox(repositoryItemImageComboBox1);
+			UpdateCurrentTask();
 			Text = ProgramData.Caption;
+			EnumProcessingHelper.RegisterEnum(typeof(TaskStatus));
+			Thread.Sleep(1800);
+			SplashScreenManager.CloseForm();
 		}
 
 		internal void EnabledFlagButtons(bool enabledCurrentTask, bool enabledEdit, Task task)
@@ -42,36 +54,16 @@ namespace TaskManager.Source.Forms
 			{
 				item.Enabled = enabledCurrentTask;
 				if( task != null )
-					item.Down = task.FlagStatus.Equals(item.Tag);
+					item.Down = task.FlagStatus.ToString() == (item.Tag as string);
 				else item.Down = false;
 			}
 			bbiDeleteTask.Enabled = enabledCurrentTask;
 			bbiEditTask.Enabled = enabledEdit;
 		}
 
-		private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		private void bbiOpen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
-			Task task = new Task("Новая задача")
-			{
-				Executor = "Исполнитель",
-				Category = "Прочие задачи",
-				Creator = "Пользователь",
-				Description = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n\t<head>\r\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><title>\r\n\t\t</title>\r\n\t\t<style type=\"text/css\">\r\n\t\t\t.cs95E872D0{text-align:left;text-indent:0pt;margin:0pt 0pt 0pt 0pt}\r\n\t\t\t.csCF6BBF71{color:#000000;background-color:transparent;font-family:Times New Roman;font-size:10pt;font-weight:normal;font-style:normal;}\r\n\t\t</style>\r\n\t</head>\r\n\t<body>\r\n\t\t<p class=\"cs95E872D0\"><span class=\"csCF6BBF71\">Описание задачи</span></p></body>\r\n</html>\r\n"
-			};
-			gridControl1.MainView.BeginDataUpdate();
-			try
-			{
-				tasks.Add(task);
-			}
-			finally
-			{
-				gridControl1.MainView.EndDataUpdate();
-			}
-			ColumnView view = gridControl1.MainView as ColumnView;
-			if( view != null )
-			{
-				GridUtils.GridViewFocusObject(view, task);
-			}
+
 		}
 
 		private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
@@ -81,7 +73,7 @@ namespace TaskManager.Source.Forms
 			{
 				if( e.Button == MouseButtons.Left )
 					CurrentTask.Complete = !CurrentTask.Complete;
-				//if( e.Button == MouseButtons.Right ) OwnerForm.FlagStatusMenu.ShowPopup(gridControl1.PointToScreen(e.Location));
+				if( e.Button == MouseButtons.Right ) pmFlagStatus.ShowPopup(gridControl1.PointToScreen(e.Location));
 				gridView1.LayoutChanged();
 			}
 			if( e.Button == MouseButtons.Left && e.RowHandle >= 0 && e.Clicks == 2 )
@@ -172,7 +164,6 @@ namespace TaskManager.Source.Forms
 		}
 		private void gridView1_KeyDown(object sender, KeyEventArgs e)
 		{
-			var i = 0;
 			if( e.KeyData == Keys.Enter && gridView1.FocusedRowHandle >= 0 )
 				EditTask(CurrentTask);
 		}
@@ -213,12 +204,12 @@ namespace TaskManager.Source.Forms
 						colCreated.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
 						break;
 					case TagResources.TaskToDoList:
-						gridView1.ActiveFilterString = "[Status] <> ##Enum#DevExpress.MailClient.Win.TaskStatus,Completed# And [DueDate] Is Not Null";
+						gridView1.ActiveFilterString = "[Status] <> ##Enum#TaskManager.Source.Data.TaskStatus,Completed# And [DueDate] Is Not Null";
 						colDueDate.Group();
 						colCompleted.Visible = false;
 						break;
 					case TagResources.TaskCompleted:
-						gridView1.ActiveFilterString = "[Status] = ##Enum#DevExpress.MailClient.Win.TaskStatus,Completed#";
+						gridView1.ActiveFilterString = "[Status] = ##Enum#TaskManager.Source.Data.TaskStatus,Completed#";
 						colCompleted.Group();
 						colCompleted.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
 						break;
@@ -249,7 +240,7 @@ namespace TaskManager.Source.Forms
 						colCompleted.Visible = false;
 						break;
 					case TagResources.TaskDeferred:
-						gridView1.ActiveFilterString = "[Status] = ##Enum#DevExpress.MailClient.Win.TaskStatus,Deferred# Or [Status] = ##Enum#DevExpress.MailClient.Win.TaskStatus,WaitingOnSomeoneElse#";
+						gridView1.ActiveFilterString = "[Status] = ##Enum#TaskManager.Source.Data.TaskStatus,Deferred# Or [Status] = ##Enum#TaskManager.Source.Data.TaskStatus,WaitingOnSomeoneElse#";
 						colCompleted.Group();
 						colCreated.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
 						colCompleted.Visible = false;
@@ -328,7 +319,7 @@ namespace TaskManager.Source.Forms
 			gridView1.BeginDataUpdate();
 			try
 			{
-				RemoveCurrentTask(tasks);
+				RemoveCurrentTask(taskBase.Tasks);
 			}
 			finally
 			{
@@ -346,7 +337,7 @@ namespace TaskManager.Source.Forms
 				gridControl1.MainView.BeginDataUpdate();
 				try
 				{
-					tasks.Add(task);
+					taskBase.Tasks.Add(task);
 				}
 				finally
 				{
@@ -365,9 +356,14 @@ namespace TaskManager.Source.Forms
 			EditTask(CurrentTask);
 		}
 
-		private void bbiFlag_ItemClick(object sender, ItemClickEventArgs e)
+		private void bbiFlag_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
-			DoFlagStatusButtonClick((sender as Control).Tag as string);
+			DoFlagStatusButtonClick(e.Item.Tag as string);
+		}
+
+		private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			taskBase.Save();
 		}
 	}
 }

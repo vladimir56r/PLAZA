@@ -57,8 +57,6 @@ namespace TaskManager.Source.Forms
 			this.colExecutor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colCreator = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colCategory = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-			this.repositoryItemImageComboBox4 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-			this.icCategory = new DevExpress.Utils.ImageCollection(this.components);
 			this.colDescription = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemRichTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
 			this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -75,6 +73,8 @@ namespace TaskManager.Source.Forms
 			this.colFlagStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox5 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
 			this.ilColumns = new System.Windows.Forms.ImageList(this.components);
+			this.repositoryItemImageComboBox4 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+			this.icCategory = new DevExpress.Utils.ImageCollection(this.components);
 			this.repositoryItemTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
 			this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
 			this.bbiOpen = new DevExpress.XtraBars.BarButtonItem();
@@ -97,24 +97,27 @@ namespace TaskManager.Source.Forms
 			this.rpgTasks = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.rpgFollowUp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.rpdCurrentViewTasks = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+			this.pmFlagStatus = new DevExpress.XtraBars.PopupMenu(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.icEditors)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.icCategory)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.icCategory)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pmFlagStatus)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// gridControl1
 			// 
-			resources.ApplyResources(this.gridControl1, "gridControl1");
+			this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gridControl1.Location = new System.Drawing.Point(0, 95);
 			this.gridControl1.MainView = this.gridView1;
 			this.gridControl1.Name = "gridControl1";
 			this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -126,6 +129,8 @@ namespace TaskManager.Source.Forms
             this.repositoryItemTrackBar1,
             this.repositoryItemImageComboBox5,
             this.repositoryItemRichTextEdit1});
+			this.gridControl1.Size = new System.Drawing.Size(1067, 539);
+			this.gridControl1.TabIndex = 0;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
 			// 
@@ -156,7 +161,7 @@ namespace TaskManager.Source.Forms
             this.colDescription});
 			this.gridView1.GridControl = this.gridControl1;
 			this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(((DevExpress.Data.SummaryItemType)(resources.GetObject("gridView1.GroupSummary"))), resources.GetString("gridView1.GroupSummary1"), ((DevExpress.XtraGrid.Columns.GridColumn)(resources.GetObject("gridView1.GroupSummary2"))), resources.GetString("gridView1.GroupSummary3"))});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Subject", null, "")});
 			this.gridView1.Images = this.ilColumns;
 			this.gridView1.Name = "gridView1";
 			this.gridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.True;
@@ -189,16 +194,18 @@ namespace TaskManager.Source.Forms
 			this.gridBand1.Columns.Add(this.colIcon);
 			this.gridBand1.Columns.Add(this.colPriority);
 			this.gridBand1.Columns.Add(this.colOverdue);
-			resources.ApplyResources(this.gridBand1, "gridBand1");
+			this.gridBand1.Name = "gridBand1";
 			this.gridBand1.OptionsBand.AllowMove = false;
 			this.gridBand1.OptionsBand.AllowSize = false;
 			this.gridBand1.OptionsBand.FixedWidth = true;
 			this.gridBand1.VisibleIndex = 0;
+			this.gridBand1.Width = 104;
 			// 
 			// colComplete
 			// 
 			this.colComplete.FieldName = "Complete";
-			resources.ApplyResources(this.colComplete, "colComplete");
+			this.colComplete.ImageAlignment = System.Drawing.StringAlignment.Center;
+			this.colComplete.ImageIndex = 2;
 			this.colComplete.Name = "colComplete";
 			this.colComplete.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
 			this.colComplete.OptionsColumn.AllowSize = false;
@@ -208,12 +215,16 @@ namespace TaskManager.Source.Forms
 			this.colComplete.OptionsColumn.ShowInCustomizationForm = false;
 			this.colComplete.OptionsFilter.AllowFilter = false;
 			this.colComplete.RowCount = 3;
+			this.colComplete.ToolTip = "Complete";
+			this.colComplete.Visible = true;
+			this.colComplete.Width = 32;
 			// 
 			// colIcon
 			// 
 			this.colIcon.ColumnEdit = this.repositoryItemImageComboBox2;
 			this.colIcon.FieldName = "Icon";
-			resources.ApplyResources(this.colIcon, "colIcon");
+			this.colIcon.ImageAlignment = System.Drawing.StringAlignment.Center;
+			this.colIcon.ImageIndex = 1;
 			this.colIcon.Name = "colIcon";
 			this.colIcon.OptionsColumn.AllowEdit = false;
 			this.colIcon.OptionsColumn.AllowFocus = false;
@@ -224,14 +235,16 @@ namespace TaskManager.Source.Forms
 			this.colIcon.OptionsColumn.ShowCaption = false;
 			this.colIcon.OptionsFilter.AllowFilter = false;
 			this.colIcon.RowCount = 3;
+			this.colIcon.Visible = true;
+			this.colIcon.Width = 32;
 			// 
 			// repositoryItemImageComboBox2
 			// 
 			this.repositoryItemImageComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemImageComboBox2.Buttons"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
 			this.repositoryItemImageComboBox2.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem(resources.GetString("repositoryItemImageComboBox2.Items"), ((object)(resources.GetObject("repositoryItemImageComboBox2.Items1"))), ((int)(resources.GetObject("repositoryItemImageComboBox2.Items2")))),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem(resources.GetString("repositoryItemImageComboBox2.Items3"), ((object)(resources.GetObject("repositoryItemImageComboBox2.Items4"))), ((int)(resources.GetObject("repositoryItemImageComboBox2.Items5"))))});
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 0)});
 			this.repositoryItemImageComboBox2.Name = "repositoryItemImageComboBox2";
 			this.repositoryItemImageComboBox2.SmallImages = this.icEditors;
 			// 
@@ -247,7 +260,8 @@ namespace TaskManager.Source.Forms
 			// 
 			this.colPriority.ColumnEdit = this.repositoryItemImageComboBox1;
 			this.colPriority.FieldName = "Priority";
-			resources.ApplyResources(this.colPriority, "colPriority");
+			this.colPriority.ImageAlignment = System.Drawing.StringAlignment.Center;
+			this.colPriority.ImageIndex = 0;
 			this.colPriority.Name = "colPriority";
 			this.colPriority.OptionsColumn.AllowSize = false;
 			this.colPriority.OptionsColumn.FixedWidth = true;
@@ -255,6 +269,9 @@ namespace TaskManager.Source.Forms
 			this.colPriority.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
 			this.colPriority.RowCount = 3;
 			this.colPriority.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowOnlyInEditor;
+			this.colPriority.ToolTip = "Приоритет";
+			this.colPriority.Visible = true;
+			this.colPriority.Width = 40;
 			// 
 			// repositoryItemImageComboBox1
 			// 
@@ -271,71 +288,68 @@ namespace TaskManager.Source.Forms
 			// 
 			this.gridBand2.AppearanceHeader.Options.UseTextOptions = true;
 			this.gridBand2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-			resources.ApplyResources(this.gridBand2, "gridBand2");
+			this.gridBand2.Caption = "Основные параметры";
 			this.gridBand2.Columns.Add(this.colSubject);
 			this.gridBand2.Columns.Add(this.colExecutor);
 			this.gridBand2.Columns.Add(this.colCreator);
 			this.gridBand2.Columns.Add(this.colCategory);
 			this.gridBand2.Columns.Add(this.colDescription);
+			this.gridBand2.Name = "gridBand2";
 			this.gridBand2.OptionsBand.AllowMove = false;
 			this.gridBand2.VisibleIndex = 1;
+			this.gridBand2.Width = 665;
 			// 
 			// colSubject
 			// 
-			resources.ApplyResources(this.colSubject, "colSubject");
+			this.colSubject.Caption = "Тема задания";
 			this.colSubject.FieldName = "Subject";
 			this.colSubject.Name = "colSubject";
 			this.colSubject.OptionsColumn.AllowEdit = false;
 			this.colSubject.OptionsColumn.AllowFocus = false;
+			this.colSubject.Visible = true;
+			this.colSubject.Width = 171;
 			// 
 			// colExecutor
 			// 
-			resources.ApplyResources(this.colExecutor, "colExecutor");
+			this.colExecutor.Caption = "Исполнитель";
 			this.colExecutor.FieldName = "Executor";
 			this.colExecutor.Name = "colExecutor";
 			this.colExecutor.OptionsColumn.AllowEdit = false;
 			this.colExecutor.OptionsColumn.AllowFocus = false;
+			this.colExecutor.Visible = true;
+			this.colExecutor.Width = 189;
 			// 
 			// colCreator
 			// 
-			resources.ApplyResources(this.colCreator, "colCreator");
+			this.colCreator.Caption = "Заявитель";
 			this.colCreator.FieldName = "Creator";
 			this.colCreator.Name = "colCreator";
 			this.colCreator.OptionsColumn.AllowEdit = false;
 			this.colCreator.OptionsColumn.AllowFocus = false;
+			this.colCreator.Visible = true;
+			this.colCreator.Width = 156;
 			// 
 			// colCategory
 			// 
-			resources.ApplyResources(this.colCategory, "colCategory");
-			this.colCategory.ColumnEdit = this.repositoryItemImageComboBox4;
+			this.colCategory.Caption = "Группа";
 			this.colCategory.FieldName = "Category";
 			this.colCategory.Name = "colCategory";
 			this.colCategory.OptionsColumn.AllowEdit = false;
 			this.colCategory.OptionsColumn.AllowFocus = false;
 			this.colCategory.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
-			// 
-			// repositoryItemImageComboBox4
-			// 
-			this.repositoryItemImageComboBox4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemImageComboBox4.Buttons"))))});
-			this.repositoryItemImageComboBox4.Name = "repositoryItemImageComboBox4";
-			this.repositoryItemImageComboBox4.SmallImages = this.icCategory;
-			// 
-			// icCategory
-			// 
-			this.icCategory.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("icCategory.ImageStream")));
-			this.icCategory.Images.SetKeyName(0, "HouseChores_16x16.png");
-			this.icCategory.Images.SetKeyName(1, "BO_Cart.png");
-			this.icCategory.Images.SetKeyName(2, "BO_Organization.png");
+			this.colCategory.Visible = true;
+			this.colCategory.Width = 149;
 			// 
 			// colDescription
 			// 
-			resources.ApplyResources(this.colDescription, "colDescription");
+			this.colDescription.Caption = "Описание задачи";
 			this.colDescription.ColumnEdit = this.repositoryItemRichTextEdit1;
 			this.colDescription.FieldName = "Description";
 			this.colDescription.Name = "colDescription";
 			this.colDescription.RowCount = 2;
 			this.colDescription.RowIndex = 1;
+			this.colDescription.Visible = true;
+			this.colDescription.Width = 665;
 			// 
 			// repositoryItemRichTextEdit1
 			// 
@@ -349,49 +363,59 @@ namespace TaskManager.Source.Forms
 			// 
 			this.gridBand3.AppearanceHeader.Options.UseTextOptions = true;
 			this.gridBand3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-			resources.ApplyResources(this.gridBand3, "gridBand3");
+			this.gridBand3.Caption = "Состояние задачи";
 			this.gridBand3.Columns.Add(this.colCreated);
 			this.gridBand3.Columns.Add(this.colStatus);
 			this.gridBand3.Columns.Add(this.colPercent);
+			this.gridBand3.Name = "gridBand3";
 			this.gridBand3.OptionsBand.AllowMove = false;
 			this.gridBand3.OptionsBand.AllowSize = false;
 			this.gridBand3.OptionsBand.FixedWidth = true;
 			this.gridBand3.VisibleIndex = 2;
+			this.gridBand3.Width = 150;
 			// 
 			// colCreated
 			// 
-			resources.ApplyResources(this.colCreated, "colCreated");
+			this.colCreated.Caption = "Добавлено";
 			this.colCreated.FieldName = "CreatedDate";
 			this.colCreated.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateRange;
 			this.colCreated.Name = "colCreated";
 			this.colCreated.OptionsColumn.AllowEdit = false;
 			this.colCreated.OptionsColumn.AllowFocus = false;
+			this.colCreated.Visible = true;
+			this.colCreated.Width = 150;
 			// 
 			// colStatus
 			// 
-			resources.ApplyResources(this.colStatus, "colStatus");
+			this.colStatus.Caption = "Статус";
 			this.colStatus.ColumnEdit = this.repositoryItemImageComboBox3;
 			this.colStatus.FieldName = "Status";
 			this.colStatus.Name = "colStatus";
 			this.colStatus.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
 			this.colStatus.RowIndex = 1;
+			this.colStatus.Visible = true;
+			this.colStatus.Width = 150;
 			// 
 			// repositoryItemImageComboBox3
 			// 
 			this.repositoryItemImageComboBox3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemImageComboBox3.Buttons"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
 			this.repositoryItemImageComboBox3.Name = "repositoryItemImageComboBox3";
 			// 
 			// colPercent
 			// 
-			resources.ApplyResources(this.colPercent, "colPercent");
+			this.colPercent.Caption = "Завершено";
 			this.colPercent.ColumnEdit = this.repositoryItemProgressBar1;
 			this.colPercent.FieldName = "PercentComplete";
 			this.colPercent.Name = "colPercent";
 			this.colPercent.RowIndex = 2;
+			this.colPercent.Visible = true;
+			this.colPercent.Width = 150;
 			// 
 			// repositoryItemProgressBar1
 			// 
+			this.repositoryItemProgressBar1.LookAndFeel.SkinName = "Office 2010 Black";
+			this.repositoryItemProgressBar1.LookAndFeel.UseDefaultLookAndFeel = false;
 			this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
 			this.repositoryItemProgressBar1.ShowTitle = true;
 			// 
@@ -399,54 +423,63 @@ namespace TaskManager.Source.Forms
 			// 
 			this.gridBand4.AppearanceHeader.Options.UseTextOptions = true;
 			this.gridBand4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-			resources.ApplyResources(this.gridBand4, "gridBand4");
+			this.gridBand4.Caption = "Время";
 			this.gridBand4.Columns.Add(this.colStartDate);
 			this.gridBand4.Columns.Add(this.colDueDate);
 			this.gridBand4.Columns.Add(this.colCompleted);
+			this.gridBand4.Name = "gridBand4";
 			this.gridBand4.OptionsBand.AllowMove = false;
 			this.gridBand4.OptionsBand.AllowSize = false;
 			this.gridBand4.OptionsBand.FixedWidth = true;
 			this.gridBand4.VisibleIndex = 3;
+			this.gridBand4.Width = 78;
 			// 
 			// colStartDate
 			// 
-			resources.ApplyResources(this.colStartDate, "colStartDate");
+			this.colStartDate.Caption = "Дата начала";
 			this.colStartDate.FieldName = "StartDate";
 			this.colStartDate.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateRange;
 			this.colStartDate.Name = "colStartDate";
+			this.colStartDate.Visible = true;
+			this.colStartDate.Width = 78;
 			// 
 			// colDueDate
 			// 
-			resources.ApplyResources(this.colDueDate, "colDueDate");
+			this.colDueDate.Caption = "Дедлайн";
 			this.colDueDate.FieldName = "DueDate";
 			this.colDueDate.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateRange;
 			this.colDueDate.Name = "colDueDate";
 			this.colDueDate.RowIndex = 1;
+			this.colDueDate.Visible = true;
+			this.colDueDate.Width = 78;
 			// 
 			// colCompleted
 			// 
-			resources.ApplyResources(this.colCompleted, "colCompleted");
+			this.colCompleted.Caption = "Выполнено";
 			this.colCompleted.FieldName = "CompletedDate";
 			this.colCompleted.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateRange;
 			this.colCompleted.Name = "colCompleted";
 			this.colCompleted.OptionsColumn.AllowEdit = false;
 			this.colCompleted.OptionsColumn.AllowFocus = false;
 			this.colCompleted.RowIndex = 2;
+			this.colCompleted.Visible = true;
+			this.colCompleted.Width = 78;
 			// 
 			// gridBand5
 			// 
 			this.gridBand5.Columns.Add(this.colFlagStatus);
-			resources.ApplyResources(this.gridBand5, "gridBand5");
+			this.gridBand5.Name = "gridBand5";
 			this.gridBand5.OptionsBand.AllowMove = false;
 			this.gridBand5.OptionsBand.AllowSize = false;
 			this.gridBand5.OptionsBand.FixedWidth = true;
 			this.gridBand5.VisibleIndex = 4;
+			this.gridBand5.Width = 35;
 			// 
 			// colFlagStatus
 			// 
 			this.colFlagStatus.ColumnEdit = this.repositoryItemImageComboBox5;
 			this.colFlagStatus.FieldName = "FlagStatus";
-			resources.ApplyResources(this.colFlagStatus, "colFlagStatus");
+			this.colFlagStatus.ImageIndex = 3;
 			this.colFlagStatus.Name = "colFlagStatus";
 			this.colFlagStatus.OptionsColumn.AllowEdit = false;
 			this.colFlagStatus.OptionsColumn.AllowFocus = false;
@@ -454,11 +487,14 @@ namespace TaskManager.Source.Forms
 			this.colFlagStatus.OptionsColumn.FixedWidth = true;
 			this.colFlagStatus.OptionsColumn.ShowCaption = false;
 			this.colFlagStatus.RowCount = 3;
+			this.colFlagStatus.ToolTip = "Метка";
+			this.colFlagStatus.Visible = true;
+			this.colFlagStatus.Width = 35;
 			// 
 			// repositoryItemImageComboBox5
 			// 
 			this.repositoryItemImageComboBox5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemImageComboBox5.Buttons"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
 			this.repositoryItemImageComboBox5.Name = "repositoryItemImageComboBox5";
 			// 
 			// ilColumns
@@ -470,9 +506,25 @@ namespace TaskManager.Source.Forms
 			this.ilColumns.Images.SetKeyName(2, "Complete.png");
 			this.ilColumns.Images.SetKeyName(3, "Flag.png");
 			// 
+			// repositoryItemImageComboBox4
+			// 
+			this.repositoryItemImageComboBox4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
+			this.repositoryItemImageComboBox4.Name = "repositoryItemImageComboBox4";
+			this.repositoryItemImageComboBox4.SmallImages = this.icCategory;
+			// 
+			// icCategory
+			// 
+			this.icCategory.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("icCategory.ImageStream")));
+			this.icCategory.Images.SetKeyName(0, "HouseChores_16x16.png");
+			this.icCategory.Images.SetKeyName(1, "BO_Cart.png");
+			this.icCategory.Images.SetKeyName(2, "BO_Organization.png");
+			// 
 			// repositoryItemTrackBar1
 			// 
 			this.repositoryItemTrackBar1.LargeChange = 10;
+			this.repositoryItemTrackBar1.LookAndFeel.SkinName = "Office 2010 Black";
+			this.repositoryItemTrackBar1.LookAndFeel.UseDefaultLookAndFeel = false;
 			this.repositoryItemTrackBar1.Maximum = 100;
 			this.repositoryItemTrackBar1.Name = "repositoryItemTrackBar1";
 			this.repositoryItemTrackBar1.ShowValueToolTip = true;
@@ -499,7 +551,7 @@ namespace TaskManager.Source.Forms
             this.rgbiCurrentViewTasks,
             this.bbiManageView,
             this.bbiSaveCurrentView});
-			resources.ApplyResources(this.ribbonControl1, "ribbonControl1");
+			this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
 			this.ribbonControl1.MaxItemId = 4;
 			this.ribbonControl1.Name = "ribbonControl1";
 			this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -508,21 +560,22 @@ namespace TaskManager.Source.Forms
 			this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
 			this.ribbonControl1.ShowToolbarCustomizeItem = false;
+			this.ribbonControl1.Size = new System.Drawing.Size(1067, 95);
 			this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
 			this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
 			// 
 			// bbiOpen
 			// 
-			resources.ApplyResources(this.bbiOpen, "bbiOpen");
+			this.bbiOpen.Caption = "Открыть";
 			this.bbiOpen.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiOpen.Glyph")));
 			this.bbiOpen.Id = 1;
 			this.bbiOpen.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiOpen.LargeGlyph")));
 			this.bbiOpen.Name = "bbiOpen";
-			this.bbiOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+			this.bbiOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOpen_ItemClick);
 			// 
 			// bbiSave
 			// 
-			resources.ApplyResources(this.bbiSave, "bbiSave");
+			this.bbiSave.Caption = "Сохранить";
 			this.bbiSave.Glyph = global::TaskManager.Properties.Resources.Save_16x16;
 			this.bbiSave.Id = 2;
 			this.bbiSave.LargeGlyph = global::TaskManager.Properties.Resources.Save_32x32;
@@ -530,7 +583,7 @@ namespace TaskManager.Source.Forms
 			// 
 			// bbiSaveAs
 			// 
-			resources.ApplyResources(this.bbiSaveAs, "bbiSaveAs");
+			this.bbiSaveAs.Caption = "Сохранить как";
 			this.bbiSaveAs.Glyph = global::TaskManager.Properties.Resources.SaveAll_32x32;
 			this.bbiSaveAs.Id = 3;
 			this.bbiSaveAs.LargeGlyph = global::TaskManager.Properties.Resources.SaveAll_32x32;
@@ -538,82 +591,91 @@ namespace TaskManager.Source.Forms
 			// 
 			// bbiNewTask
 			// 
-			resources.ApplyResources(this.bbiNewTask, "bbiNewTask");
+			this.bbiNewTask.Caption = "Добавить";
 			this.bbiNewTask.Glyph = global::TaskManager.Properties.Resources.NewTask_16x16;
 			this.bbiNewTask.Id = 54;
 			this.bbiNewTask.LargeGlyph = global::TaskManager.Properties.Resources.NewTask_32x32;
+			this.bbiNewTask.LargeWidth = 68;
 			this.bbiNewTask.Name = "bbiNewTask";
 			this.bbiNewTask.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNewTask_ItemClick);
 			// 
 			// bbiEditTask
 			// 
-			resources.ApplyResources(this.bbiEditTask, "bbiEditTask");
+			this.bbiEditTask.Caption = "Изменить";
 			this.bbiEditTask.Glyph = global::TaskManager.Properties.Resources.EditTask_16x16;
 			this.bbiEditTask.Id = 55;
 			this.bbiEditTask.LargeGlyph = global::TaskManager.Properties.Resources.EditTask_32x32;
+			this.bbiEditTask.LargeWidth = 68;
 			this.bbiEditTask.Name = "bbiEditTask";
 			this.bbiEditTask.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiEditTask_ItemClick);
 			// 
 			// bbiDeleteTask
 			// 
-			resources.ApplyResources(this.bbiDeleteTask, "bbiDeleteTask");
+			this.bbiDeleteTask.Caption = "Удалить";
 			this.bbiDeleteTask.Glyph = global::TaskManager.Properties.Resources.Delete_16x16;
 			this.bbiDeleteTask.Id = 56;
 			this.bbiDeleteTask.LargeGlyph = global::TaskManager.Properties.Resources.Delete_32x32;
+			this.bbiDeleteTask.LargeWidth = 68;
 			this.bbiDeleteTask.Name = "bbiDeleteTask";
 			this.bbiDeleteTask.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDeleteTask_ItemClick);
 			// 
 			// bbiTodayFlag
 			// 
 			this.bbiTodayFlag.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-			resources.ApplyResources(this.bbiTodayFlag, "bbiTodayFlag");
+			this.bbiTodayFlag.Caption = "Сегодня";
 			this.bbiTodayFlag.Glyph = global::TaskManager.Properties.Resources.Today_Flag;
 			this.bbiTodayFlag.Id = 45;
 			this.bbiTodayFlag.Name = "bbiTodayFlag";
+			this.bbiTodayFlag.Tag = "Today";
 			this.bbiTodayFlag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFlag_ItemClick);
 			// 
 			// bbiTomorrowFlag
 			// 
 			this.bbiTomorrowFlag.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-			resources.ApplyResources(this.bbiTomorrowFlag, "bbiTomorrowFlag");
+			this.bbiTomorrowFlag.Caption = "Завтра";
 			this.bbiTomorrowFlag.Glyph = global::TaskManager.Properties.Resources.Tomorrow_Flag;
 			this.bbiTomorrowFlag.Id = 46;
 			this.bbiTomorrowFlag.Name = "bbiTomorrowFlag";
+			this.bbiTomorrowFlag.Tag = "Tomorrow";
 			this.bbiTomorrowFlag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFlag_ItemClick);
 			// 
 			// bbiThisWeekFlag
 			// 
 			this.bbiThisWeekFlag.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-			resources.ApplyResources(this.bbiThisWeekFlag, "bbiThisWeekFlag");
+			this.bbiThisWeekFlag.Caption = "Эта неделя";
 			this.bbiThisWeekFlag.Glyph = global::TaskManager.Properties.Resources.ThisWeek_Flag;
 			this.bbiThisWeekFlag.Id = 47;
 			this.bbiThisWeekFlag.Name = "bbiThisWeekFlag";
+			this.bbiThisWeekFlag.Tag = "ThisWeek";
 			this.bbiThisWeekFlag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFlag_ItemClick);
 			// 
 			// bbiNextWeekFlag
 			// 
 			this.bbiNextWeekFlag.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-			resources.ApplyResources(this.bbiNextWeekFlag, "bbiNextWeekFlag");
+			this.bbiNextWeekFlag.Caption = "Следующая неделя";
 			this.bbiNextWeekFlag.Glyph = global::TaskManager.Properties.Resources.NextWeek_Flag;
 			this.bbiNextWeekFlag.Id = 48;
 			this.bbiNextWeekFlag.Name = "bbiNextWeekFlag";
+			this.bbiNextWeekFlag.Tag = "NextWeek";
 			this.bbiNextWeekFlag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFlag_ItemClick);
 			// 
 			// bbiNoDateFlag
 			// 
 			this.bbiNoDateFlag.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-			resources.ApplyResources(this.bbiNoDateFlag, "bbiNoDateFlag");
+			this.bbiNoDateFlag.Caption = "Без ограничений";
 			this.bbiNoDateFlag.Glyph = global::TaskManager.Properties.Resources.NoDate_Flag;
 			this.bbiNoDateFlag.Id = 49;
 			this.bbiNoDateFlag.Name = "bbiNoDateFlag";
+			this.bbiNoDateFlag.Tag = "NoDate";
 			this.bbiNoDateFlag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFlag_ItemClick);
 			// 
 			// bbiCustomFlag
 			// 
-			resources.ApplyResources(this.bbiCustomFlag, "bbiCustomFlag");
+			this.bbiCustomFlag.Caption = "Произвольная дата";
 			this.bbiCustomFlag.Glyph = global::TaskManager.Properties.Resources.Custom_Flag;
 			this.bbiCustomFlag.Id = 50;
 			this.bbiCustomFlag.Name = "bbiCustomFlag";
+			this.bbiCustomFlag.Tag = "Custom";
 			this.bbiCustomFlag.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFlag_ItemClick);
 			// 
 			// rgbiCurrentViewTasks
@@ -696,7 +758,8 @@ namespace TaskManager.Source.Forms
 			this.ribbonPageGroup1.ItemLinks.Add(this.bbiSave);
 			this.ribbonPageGroup1.ItemLinks.Add(this.bbiSaveAs);
 			this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-			resources.ApplyResources(this.ribbonPageGroup1, "ribbonPageGroup1");
+			this.ribbonPageGroup1.Text = "Файл";
+			this.ribbonPageGroup1.Visible = false;
 			// 
 			// rpgTasks
 			// 
@@ -705,7 +768,7 @@ namespace TaskManager.Source.Forms
 			this.rpgTasks.ItemLinks.Add(this.bbiDeleteTask, true);
 			this.rpgTasks.Name = "rpgTasks";
 			this.rpgTasks.ShowCaptionButton = false;
-			resources.ApplyResources(this.rpgTasks, "rpgTasks");
+			this.rpgTasks.Text = "Задачи";
 			// 
 			// rpgFollowUp
 			// 
@@ -717,37 +780,54 @@ namespace TaskManager.Source.Forms
 			this.rpgFollowUp.ItemLinks.Add(this.bbiCustomFlag);
 			this.rpgFollowUp.Name = "rpgFollowUp";
 			this.rpgFollowUp.ShowCaptionButton = false;
-			resources.ApplyResources(this.rpgFollowUp, "rpgFollowUp");
+			this.rpgFollowUp.Text = "Дедлайн";
 			// 
 			// rpdCurrentViewTasks
 			// 
 			this.rpdCurrentViewTasks.ItemLinks.Add(this.rgbiCurrentViewTasks);
 			this.rpdCurrentViewTasks.Name = "rpdCurrentViewTasks";
 			this.rpdCurrentViewTasks.ShowCaptionButton = false;
-			resources.ApplyResources(this.rpdCurrentViewTasks, "rpdCurrentViewTasks");
+			this.rpdCurrentViewTasks.Text = "Отображение";
+			// 
+			// pmFlagStatus
+			// 
+			this.pmFlagStatus.ItemLinks.Add(this.bbiTodayFlag);
+			this.pmFlagStatus.ItemLinks.Add(this.bbiTomorrowFlag);
+			this.pmFlagStatus.ItemLinks.Add(this.bbiThisWeekFlag);
+			this.pmFlagStatus.ItemLinks.Add(this.bbiNextWeekFlag);
+			this.pmFlagStatus.ItemLinks.Add(this.bbiNoDateFlag);
+			this.pmFlagStatus.ItemLinks.Add(this.bbiCustomFlag, true);
+			this.pmFlagStatus.Name = "pmFlagStatus";
+			this.pmFlagStatus.Ribbon = this.ribbonControl1;
 			// 
 			// MainForm
 			// 
-			resources.ApplyResources(this, "$this");
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1067, 634);
 			this.Controls.Add(this.gridControl1);
 			this.Controls.Add(this.ribbonControl1);
-			this.LookAndFeel.SkinName = "Office 2013";
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.LookAndFeel.UseDefaultLookAndFeel = false;
+			this.MaximizeBox = false;
 			this.Name = "MainForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "PLAZA";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.icEditors)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.icCategory)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.icCategory)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pmFlagStatus)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -795,7 +875,6 @@ namespace TaskManager.Source.Forms
 		private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
 		private DevExpress.XtraBars.BarButtonItem bbiSave;
 		private DevExpress.XtraBars.BarButtonItem bbiSaveAs;
-		private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpTasks;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTasks;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgFollowUp;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpdCurrentViewTasks;
@@ -811,5 +890,6 @@ namespace TaskManager.Source.Forms
 		private DevExpress.XtraBars.RibbonGalleryBarItem rgbiCurrentViewTasks;
 		private DevExpress.XtraBars.BarButtonItem bbiManageView;
 		private DevExpress.XtraBars.BarButtonItem bbiSaveCurrentView;
+		private DevExpress.XtraBars.PopupMenu pmFlagStatus;
 	}
 }
