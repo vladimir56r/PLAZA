@@ -129,7 +129,7 @@ namespace TaskManager.Source.Forms
             this.repositoryItemTrackBar1,
             this.repositoryItemImageComboBox5,
             this.repositoryItemRichTextEdit1});
-			this.gridControl1.Size = new System.Drawing.Size(1067, 539);
+			this.gridControl1.Size = new System.Drawing.Size(1093, 539);
 			this.gridControl1.TabIndex = 0;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -208,6 +208,7 @@ namespace TaskManager.Source.Forms
 			this.colComplete.ImageIndex = 2;
 			this.colComplete.Name = "colComplete";
 			this.colComplete.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+			this.colComplete.OptionsColumn.AllowMove = false;
 			this.colComplete.OptionsColumn.AllowSize = false;
 			this.colComplete.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
 			this.colComplete.OptionsColumn.FixedWidth = true;
@@ -229,6 +230,7 @@ namespace TaskManager.Source.Forms
 			this.colIcon.OptionsColumn.AllowEdit = false;
 			this.colIcon.OptionsColumn.AllowFocus = false;
 			this.colIcon.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+			this.colIcon.OptionsColumn.AllowMove = false;
 			this.colIcon.OptionsColumn.AllowSize = false;
 			this.colIcon.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
 			this.colIcon.OptionsColumn.FixedWidth = true;
@@ -263,6 +265,7 @@ namespace TaskManager.Source.Forms
 			this.colPriority.ImageAlignment = System.Drawing.StringAlignment.Center;
 			this.colPriority.ImageIndex = 0;
 			this.colPriority.Name = "colPriority";
+			this.colPriority.OptionsColumn.AllowMove = false;
 			this.colPriority.OptionsColumn.AllowSize = false;
 			this.colPriority.OptionsColumn.FixedWidth = true;
 			this.colPriority.OptionsColumn.ShowCaption = false;
@@ -306,6 +309,7 @@ namespace TaskManager.Source.Forms
 			this.colSubject.Name = "colSubject";
 			this.colSubject.OptionsColumn.AllowEdit = false;
 			this.colSubject.OptionsColumn.AllowFocus = false;
+			this.colSubject.OptionsColumn.AllowMove = false;
 			this.colSubject.Visible = true;
 			this.colSubject.Width = 171;
 			// 
@@ -316,6 +320,7 @@ namespace TaskManager.Source.Forms
 			this.colExecutor.Name = "colExecutor";
 			this.colExecutor.OptionsColumn.AllowEdit = false;
 			this.colExecutor.OptionsColumn.AllowFocus = false;
+			this.colExecutor.OptionsColumn.AllowMove = false;
 			this.colExecutor.Visible = true;
 			this.colExecutor.Width = 189;
 			// 
@@ -326,6 +331,7 @@ namespace TaskManager.Source.Forms
 			this.colCreator.Name = "colCreator";
 			this.colCreator.OptionsColumn.AllowEdit = false;
 			this.colCreator.OptionsColumn.AllowFocus = false;
+			this.colCreator.OptionsColumn.AllowMove = false;
 			this.colCreator.Visible = true;
 			this.colCreator.Width = 156;
 			// 
@@ -336,6 +342,7 @@ namespace TaskManager.Source.Forms
 			this.colCategory.Name = "colCategory";
 			this.colCategory.OptionsColumn.AllowEdit = false;
 			this.colCategory.OptionsColumn.AllowFocus = false;
+			this.colCategory.OptionsColumn.AllowMove = false;
 			this.colCategory.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
 			this.colCategory.Visible = true;
 			this.colCategory.Width = 149;
@@ -346,6 +353,7 @@ namespace TaskManager.Source.Forms
 			this.colDescription.ColumnEdit = this.repositoryItemRichTextEdit1;
 			this.colDescription.FieldName = "Description";
 			this.colDescription.Name = "colDescription";
+			this.colDescription.OptionsColumn.AllowMove = false;
 			this.colDescription.RowCount = 2;
 			this.colDescription.RowIndex = 1;
 			this.colDescription.Visible = true;
@@ -382,6 +390,7 @@ namespace TaskManager.Source.Forms
 			this.colCreated.Name = "colCreated";
 			this.colCreated.OptionsColumn.AllowEdit = false;
 			this.colCreated.OptionsColumn.AllowFocus = false;
+			this.colCreated.OptionsColumn.AllowMove = false;
 			this.colCreated.Visible = true;
 			this.colCreated.Width = 150;
 			// 
@@ -391,6 +400,7 @@ namespace TaskManager.Source.Forms
 			this.colStatus.ColumnEdit = this.repositoryItemImageComboBox3;
 			this.colStatus.FieldName = "Status";
 			this.colStatus.Name = "colStatus";
+			this.colStatus.OptionsColumn.AllowMove = false;
 			this.colStatus.OptionsFilter.FilterPopupMode = DevExpress.XtraGrid.Columns.FilterPopupMode.CheckedList;
 			this.colStatus.RowIndex = 1;
 			this.colStatus.Visible = true;
@@ -408,6 +418,7 @@ namespace TaskManager.Source.Forms
 			this.colPercent.ColumnEdit = this.repositoryItemProgressBar1;
 			this.colPercent.FieldName = "PercentComplete";
 			this.colPercent.Name = "colPercent";
+			this.colPercent.OptionsColumn.AllowMove = false;
 			this.colPercent.RowIndex = 2;
 			this.colPercent.Visible = true;
 			this.colPercent.Width = 150;
@@ -440,6 +451,7 @@ namespace TaskManager.Source.Forms
 			this.colStartDate.FieldName = "StartDate";
 			this.colStartDate.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateRange;
 			this.colStartDate.Name = "colStartDate";
+			this.colStartDate.OptionsColumn.AllowMove = false;
 			this.colStartDate.Visible = true;
 			this.colStartDate.Width = 78;
 			// 
@@ -449,6 +461,7 @@ namespace TaskManager.Source.Forms
 			this.colDueDate.FieldName = "DueDate";
 			this.colDueDate.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DateRange;
 			this.colDueDate.Name = "colDueDate";
+			this.colDueDate.OptionsColumn.AllowMove = false;
 			this.colDueDate.RowIndex = 1;
 			this.colDueDate.Visible = true;
 			this.colDueDate.Width = 78;
@@ -461,6 +474,7 @@ namespace TaskManager.Source.Forms
 			this.colCompleted.Name = "colCompleted";
 			this.colCompleted.OptionsColumn.AllowEdit = false;
 			this.colCompleted.OptionsColumn.AllowFocus = false;
+			this.colCompleted.OptionsColumn.AllowMove = false;
 			this.colCompleted.RowIndex = 2;
 			this.colCompleted.Visible = true;
 			this.colCompleted.Width = 78;
@@ -483,6 +497,7 @@ namespace TaskManager.Source.Forms
 			this.colFlagStatus.Name = "colFlagStatus";
 			this.colFlagStatus.OptionsColumn.AllowEdit = false;
 			this.colFlagStatus.OptionsColumn.AllowFocus = false;
+			this.colFlagStatus.OptionsColumn.AllowMove = false;
 			this.colFlagStatus.OptionsColumn.AllowSize = false;
 			this.colFlagStatus.OptionsColumn.FixedWidth = true;
 			this.colFlagStatus.OptionsColumn.ShowCaption = false;
@@ -560,7 +575,7 @@ namespace TaskManager.Source.Forms
 			this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
 			this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
 			this.ribbonControl1.ShowToolbarCustomizeItem = false;
-			this.ribbonControl1.Size = new System.Drawing.Size(1067, 95);
+			this.ribbonControl1.Size = new System.Drawing.Size(1093, 95);
 			this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
 			this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
 			// 
@@ -804,10 +819,11 @@ namespace TaskManager.Source.Forms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1067, 634);
+			this.ClientSize = new System.Drawing.Size(1093, 634);
 			this.Controls.Add(this.gridControl1);
 			this.Controls.Add(this.ribbonControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.LookAndFeel.UseDefaultLookAndFeel = false;
 			this.MaximizeBox = false;
 			this.Name = "MainForm";

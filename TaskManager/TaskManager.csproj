@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TaskManager</RootNamespace>
-    <AssemblyName>TaskManager</AssemblyName>
+    <AssemblyName>PLAZA</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -180,6 +183,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icon.ico" />
     <Content Include="Resources\AttachmentObject_16x16.png" />
     <Content Include="Resources\BO_Feeds.png" />
     <Content Include="Resources\BO_Feeds_Large.png" />
@@ -219,6 +223,7 @@
     <Content Include="Resources\ExportToXLS_32x32.png" />
     <Content Include="Resources\Forward.png" />
     <Content Include="Resources\High16x16.png" />
+    <Content Include="Resources\icon.ico" />
     <Content Include="Resources\Important_16x16.png" />
     <Content Include="Resources\LayoutFlip_16x16.png" />
     <Content Include="Resources\LayoutFlip_32x32.png" />

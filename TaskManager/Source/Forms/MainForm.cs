@@ -31,9 +31,7 @@ namespace TaskManager.Source.Forms
 		{
 			SplashScreenManager.ShowForm(this, typeof(SplashForm), true, false, false);
 			InitializeComponent();
-			if( File.Exists(DefaultTaskBaseFName) )
-				taskBase.Load(DefaultTaskBaseFName, string.Empty);
-			else
+			if( !File.Exists(DefaultTaskBaseFName) || !taskBase.Load(DefaultTaskBaseFName, string.Empty) )
 				taskBase.Save(DefaultTaskBaseFName);
 			gridControl1.DataSource = taskBase.Tasks;
 			EditorUtils.CreateTaskStatusImageComboBox(repositoryItemImageComboBox3);
@@ -206,7 +204,7 @@ namespace TaskManager.Source.Forms
 					case TagResources.TaskToDoList:
 						gridView1.ActiveFilterString = "[Status] <> ##Enum#TaskManager.Source.Data.TaskStatus,Completed# And [DueDate] Is Not Null";
 						colDueDate.Group();
-						colCompleted.Visible = false;
+						//colCompleted.Visible = false;
 						break;
 					case TagResources.TaskCompleted:
 						gridView1.ActiveFilterString = "[Status] = ##Enum#TaskManager.Source.Data.TaskStatus,Completed#";
@@ -216,34 +214,34 @@ namespace TaskManager.Source.Forms
 					case TagResources.TaskToday:
 						gridView1.ActiveFilterString = "IsOutlookIntervalToday([DueDate])";
 						colPriority.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
-						colCompleted.Visible = false;
+						//colCompleted.Visible = false;
 						break;
 					case TagResources.TaskPrioritized:
 						colPriority.Group();
 						colCategory.Group();
 						colDueDate.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
-						colCreated.Visible = false;
+						//colCreated.Visible = false;
 						break;
 					case TagResources.TaskOverdue:
 						gridView1.ActiveFilterString = "[Overdue] = True";
 						colDueDate.Group();
-						colCreated.Visible = false;
-						colCompleted.Visible = false;
+						//colCreated.Visible = false;
+						//colCompleted.Visible = false;
 						break;
 					case TagResources.TaskSimpleList:
 						colDueDate.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
-						colPriority.Visible = false;
-						colCategory.Visible = false;
-						colStatus.Visible = false;
-						colPercent.Visible = false;
-						colStartDate.Visible = false;
-						colCompleted.Visible = false;
+						//colPriority.Visible = false;
+						//colCategory.Visible = false;
+						//colStatus.Visible = false;
+						//colPercent.Visible = false;
+						//colStartDate.Visible = false;
+						//colCompleted.Visible = false;
 						break;
 					case TagResources.TaskDeferred:
 						gridView1.ActiveFilterString = "[Status] = ##Enum#TaskManager.Source.Data.TaskStatus,Deferred# Or [Status] = ##Enum#TaskManager.Source.Data.TaskStatus,WaitingOnSomeoneElse#";
 						colCompleted.Group();
 						colCreated.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
-						colCompleted.Visible = false;
+						//colCompleted.Visible = false;
 						break;
 				}
 			}

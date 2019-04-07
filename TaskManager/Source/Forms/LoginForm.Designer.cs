@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
 			this.loginEdit = new DevExpress.XtraEditors.TextEdit();
 			this.passwordEdit = new DevExpress.XtraEditors.TextEdit();
 			this.btn = new DevExpress.XtraEditors.SimpleButton();
@@ -88,6 +89,7 @@
 			this.Controls.Add(this.labelControl1);
 			this.Controls.Add(this.passwordEdit);
 			this.Controls.Add(this.loginEdit);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "LoginForm";
 			this.Text = "LoginForm";
 			((System.ComponentModel.ISupportInitialize)(this.loginEdit.Properties)).EndInit();
