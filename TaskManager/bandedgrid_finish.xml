@@ -1,0 +1,449 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="ColumnHeaderAutoHeight">True</property>
+    <property name="ShowGroupPanel">false</property>
+  </property>
+  <property name="OptionsSelection" isnull="true" iskey="true">
+    <property name="MultiSelectMode">RowSelect</property>
+    <property name="ShowCheckBoxSelectorInColumnHeader">Default</property>
+    <property name="ShowCheckBoxSelectorInGroupRow">Default</property>
+    <property name="ShowCheckBoxSelectorChangesSelectionNavigation">Default</property>
+    <property name="ShowCheckBoxSelectorInPrintExport">Default</property>
+    <property name="CheckBoxSelectorColumnWidth">0</property>
+    <property name="ResetSelectionClickOutsideCheckboxSelector">false</property>
+    <property name="MultiSelect">true</property>
+  </property>
+  <property name="OptionsNavigation" isnull="true" iskey="true">
+    <property name="UseAdvHorzNavigation">true</property>
+    <property name="UseAdvVertNavigation">true</property>
+    <property name="UseOfficePageNavigation">true</property>
+    <property name="AutoFocusNewRow">false</property>
+    <property name="AutoMoveRowFocus">true</property>
+    <property name="EnterMoveNextColumn">false</property>
+    <property name="UseTabKey">true</property>
+  </property>
+  <property name="Columns" iskey="true" value="16">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="VisibleIndex">0</property>
+      <property name="RowCount">3</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colComplete</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="ShowCaption">false</property>
+        <property name="AllowGroup">False</property>
+        <property name="AllowSort">False</property>
+        <property name="AllowSize">false</property>
+        <property name="FixedWidth">true</property>
+        <property name="ShowInCustomizationForm">false</property>
+      </property>
+      <property name="OptionsFilter" isnull="true" iskey="true">
+        <property name="AllowFilter">false</property>
+      </property>
+      <property name="ToolTip">Complete</property>
+      <property name="ImageAlignment">Center</property>
+      <property name="ImageIndex">2</property>
+      <property name="FieldName">Complete</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">32</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="VisibleIndex">1</property>
+      <property name="RowCount">3</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colIcon</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="ShowCaption">false</property>
+        <property name="AllowEdit">false</property>
+        <property name="AllowGroup">False</property>
+        <property name="AllowSort">False</property>
+        <property name="AllowSize">false</property>
+        <property name="AllowFocus">false</property>
+        <property name="FixedWidth">true</property>
+      </property>
+      <property name="OptionsFilter" isnull="true" iskey="true">
+        <property name="AllowFilter">false</property>
+      </property>
+      <property name="ImageAlignment">Center</property>
+      <property name="ImageIndex">1</property>
+      <property name="FieldName">Icon</property>
+      <property name="ColumnEditName">repositoryItemImageComboBox2</property>
+      <property name="Visible">true</property>
+      <property name="Width">32</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="VisibleIndex">2</property>
+      <property name="RowCount">3</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colPriority</property>
+      <property name="ShowButtonMode">ShowOnlyInEditor</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="ShowCaption">false</property>
+        <property name="AllowSize">false</property>
+        <property name="FixedWidth">true</property>
+      </property>
+      <property name="OptionsFilter" isnull="true" iskey="true">
+        <property name="FilterPopupMode">CheckedList</property>
+      </property>
+      <property name="ToolTip">Приоритет</property>
+      <property name="ImageAlignment">Center</property>
+      <property name="ImageIndex">0</property>
+      <property name="FieldName">Priority</property>
+      <property name="ColumnEditName">repositoryItemImageComboBox1</property>
+      <property name="Visible">true</property>
+      <property name="Width">40</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="VisibleIndex">3</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colSubject</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+        <property name="AllowFocus">false</property>
+      </property>
+      <property name="Caption">Тема задания</property>
+      <property name="FieldName">Subject</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">171</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="VisibleIndex">4</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colExecutor</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+        <property name="AllowFocus">false</property>
+      </property>
+      <property name="Caption">Исполнитель</property>
+      <property name="FieldName">Executor</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">189</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="VisibleIndex">5</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colCreator</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+        <property name="AllowFocus">false</property>
+      </property>
+      <property name="Caption">Заявитель</property>
+      <property name="FieldName">Creator</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="Width">156</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="VisibleIndex">9</property>
+      <property name="RowIndex">1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colStatus</property>
+      <property name="OptionsFilter" isnull="true" iskey="true">
+        <property name="FilterPopupMode">CheckedList</property>
+      </property>
+      <property name="Caption">Статус</property>
+      <property name="FieldName">Status</property>
+      <property name="ColumnEditName">repositoryItemImageComboBox3</property>
+      <property name="Visible">true</property>
+      <property name="Width">150</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="VisibleIndex">10</property>
+      <property name="RowIndex">2</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colPercent</property>
+      <property name="Caption">Завершено</property>
+      <property name="FieldName">PercentComplete</property>
+      <property name="ColumnEditName">repositoryItemProgressBar1</property>
+      <property name="Visible">true</property>
+      <property name="Width">150</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="VisibleIndex">8</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colCreated</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+        <property name="AllowFocus">false</property>
+      </property>
+      <property name="Caption">Добавлено</property>
+      <property name="FieldName">CreatedDate</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="GroupInterval">DateRange</property>
+      <property name="Width">150</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="VisibleIndex">11</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colStartDate</property>
+      <property name="Caption">Дата начала</property>
+      <property name="FieldName">StartDate</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="GroupInterval">DateRange</property>
+      <property name="Width">78</property>
+    </property>
+    <property name="Item11" isnull="true" iskey="true">
+      <property name="VisibleIndex">12</property>
+      <property name="RowIndex">1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colDueDate</property>
+      <property name="Caption">Дедлайн</property>
+      <property name="FieldName">DueDate</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="GroupInterval">DateRange</property>
+      <property name="Width">78</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="VisibleIndex">13</property>
+      <property name="RowIndex">2</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colCompleted</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+        <property name="AllowFocus">false</property>
+      </property>
+      <property name="Caption">Выполнено</property>
+      <property name="FieldName">CompletedDate</property>
+      <property name="ColumnEditName" />
+      <property name="Visible">true</property>
+      <property name="GroupInterval">DateRange</property>
+      <property name="Width">78</property>
+    </property>
+    <property name="Item13" isnull="true" iskey="true">
+      <property name="VisibleIndex">6</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colCategory</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="AllowEdit">false</property>
+        <property name="AllowFocus">false</property>
+      </property>
+      <property name="OptionsFilter" isnull="true" iskey="true">
+        <property name="FilterPopupMode">CheckedList</property>
+      </property>
+      <property name="Caption">Группа</property>
+      <property name="FieldName">Category</property>
+      <property name="ColumnEditName">repositoryItemImageComboBox4</property>
+      <property name="Visible">true</property>
+      <property name="Width">149</property>
+    </property>
+    <property name="Item14" isnull="true" iskey="true">
+      <property name="VisibleIndex">14</property>
+      <property name="RowCount">3</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colFlagStatus</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="ShowCaption">false</property>
+        <property name="AllowEdit">false</property>
+        <property name="AllowSize">false</property>
+        <property name="AllowFocus">false</property>
+        <property name="FixedWidth">true</property>
+      </property>
+      <property name="ToolTip">Метка</property>
+      <property name="ImageIndex">3</property>
+      <property name="FieldName">FlagStatus</property>
+      <property name="ColumnEditName">repositoryItemImageComboBox5</property>
+      <property name="Visible">true</property>
+      <property name="Width">35</property>
+    </property>
+    <property name="Item15" isnull="true" iskey="true">
+      <property name="VisibleIndex">-1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colOverdue</property>
+      <property name="OptionsColumn" isnull="true" iskey="true">
+        <property name="ShowInCustomizationForm">false</property>
+      </property>
+      <property name="FieldName">Overdue</property>
+      <property name="ColumnEditName" />
+    </property>
+    <property name="Item16" isnull="true" iskey="true">
+      <property name="VisibleIndex">7</property>
+      <property name="RowCount">2</property>
+      <property name="RowIndex">1</property>
+      <property name="Fixed">None</property>
+      <property name="Name">colDescription</property>
+      <property name="Caption">Описание задачи</property>
+      <property name="FieldName">Description</property>
+      <property name="ColumnEditName">repositoryItemRichTextEdit1</property>
+      <property name="Visible">true</property>
+      <property name="Width">665</property>
+    </property>
+  </property>
+  <property name="MinBandPanelRowCount">1</property>
+  <property name="BandPanelRowHeight">-1</property>
+  <property name="OptionsBehavior" isnull="true" iskey="true">
+    <property name="AllowFixedGroups">True</property>
+    <property name="AllowPixelScrolling">True</property>
+    <property name="AutoExpandAllGroups">true</property>
+  </property>
+  <property name="OptionsDetail" isnull="true" iskey="true">
+    <property name="DetailMode">Default</property>
+    <property name="EnableMasterViewMode">false</property>
+  </property>
+  <property name="OptionsFind" isnull="true" iskey="true">
+    <property name="AlwaysVisible">true</property>
+    <property name="FindFilterColumns">Subject</property>
+  </property>
+  <property name="FixedLineWidth">2</property>
+  <property name="IndicatorWidth">-1</property>
+  <property name="ColumnPanelRowHeight">-1</property>
+  <property name="RowSeparatorHeight">0</property>
+  <property name="FooterPanelHeight">-1</property>
+  <property name="HorzScrollVisibility">Auto</property>
+  <property name="VertScrollVisibility">Auto</property>
+  <property name="RowHeight">-1</property>
+  <property name="GroupRowHeight">-1</property>
+  <property name="GroupFormat">{0}: [#image]{1} {2}</property>
+  <property name="ChildGridLevelName" />
+  <property name="VertScrollTipFieldName" />
+  <property name="PreviewFieldName" />
+  <property name="GroupPanelText" />
+  <property name="NewItemRowText" />
+  <property name="LevelIndent">-1</property>
+  <property name="PreviewIndent">-1</property>
+  <property name="PreviewLineCount">-1</property>
+  <property name="ScrollStyle">LiveVertScroll, LiveHorzScroll</property>
+  <property name="FocusRectStyle">CellFocus</property>
+  <property name="HorzScrollStep">0</property>
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="ViewCaptionHeight">-1</property>
+  <property name="ViewCaption" />
+  <property name="BorderStyle">Default</property>
+  <property name="SynchronizeClones">true</property>
+  <property name="DetailTabHeaderLocation">Top</property>
+  <property name="Name">gridView1</property>
+  <property name="DetailHeight">350</property>
+  <property name="Tag" isnull="true" />
+  <property name="Bands" iskey="true" value="5">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="HAlignment">Center</property>
+          <property name="VAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Width">104</property>
+      <property name="Columns" iskey="true" value="4">
+        <property name="Item1">colComplete</property>
+        <property name="Item2">colIcon</property>
+        <property name="Item3">colPriority</property>
+        <property name="Item4">colOverdue</property>
+      </property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Name">gridBand1</property>
+      <property name="OptionsBand" isnull="true" iskey="true">
+        <property name="FixedWidth">true</property>
+        <property name="AllowSize">false</property>
+        <property name="AllowMove">false</property>
+      </property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Width">665</property>
+      <property name="Columns" iskey="true" value="5">
+        <property name="Item1">colSubject</property>
+        <property name="Item2">colExecutor</property>
+        <property name="Item3">colCreator</property>
+        <property name="Item4">colCategory</property>
+        <property name="Item5">colDescription</property>
+      </property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Caption">Основные параметры</property>
+      <property name="Name">gridBand2</property>
+      <property name="OptionsBand" isnull="true" iskey="true">
+        <property name="AllowMove">false</property>
+      </property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Width">150</property>
+      <property name="Columns" iskey="true" value="3">
+        <property name="Item1">colCreated</property>
+        <property name="Item2">colStatus</property>
+        <property name="Item3">colPercent</property>
+      </property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Caption">Состояние задачи</property>
+      <property name="Name">gridBand3</property>
+      <property name="OptionsBand" isnull="true" iskey="true">
+        <property name="FixedWidth">true</property>
+        <property name="AllowSize">false</property>
+        <property name="AllowMove">false</property>
+      </property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="AppearanceHeader" isnull="true" iskey="true">
+        <property name="Options" isnull="true" iskey="true">
+          <property name="UseTextOptions">true</property>
+        </property>
+        <property name="TextOptions" isnull="true" iskey="true">
+          <property name="HAlignment">Center</property>
+        </property>
+      </property>
+      <property name="Width">78</property>
+      <property name="Columns" iskey="true" value="3">
+        <property name="Item1">colStartDate</property>
+        <property name="Item2">colDueDate</property>
+        <property name="Item3">colCompleted</property>
+      </property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Caption">Время</property>
+      <property name="Name">gridBand4</property>
+      <property name="OptionsBand" isnull="true" iskey="true">
+        <property name="FixedWidth">true</property>
+        <property name="AllowSize">false</property>
+        <property name="AllowMove">false</property>
+      </property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Width">35</property>
+      <property name="Columns" iskey="true" value="1">
+        <property name="Item1">colFlagStatus</property>
+      </property>
+      <property name="Children" iskey="true" value="0" />
+      <property name="Name">gridBand5</property>
+      <property name="OptionsBand" isnull="true" iskey="true">
+        <property name="FixedWidth">true</property>
+        <property name="AllowSize">false</property>
+        <property name="AllowMove">false</property>
+      </property>
+    </property>
+  </property>
+  <property name="GroupSummary" iskey="true" value="1">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="ShowInGroupColumnFooterName" />
+      <property name="Tag" isnull="true" />
+      <property name="FieldName">Subject</property>
+      <property name="SummaryType">Count</property>
+      <property name="DisplayFormat" />
+    </property>
+  </property>
+  <property name="ActiveFilterString" />
+  <property name="FormatRules" iskey="true" value="0" />
+  <property name="FormatConditions" iskey="true" value="0" />
+  <property name="GroupSummarySortInfoState" />
+  <property name="FindFilterText" />
+  <property name="FindPanelVisible">false</property>
+</XtraSerializer>
