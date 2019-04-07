@@ -31,6 +31,7 @@ namespace TaskManager.Source.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
 			DevExpress.XtraBars.Ribbon.GalleryItem galleryItem1 = new DevExpress.XtraBars.Ribbon.GalleryItem();
@@ -47,7 +48,7 @@ namespace TaskManager.Source.Forms
 			this.colComplete = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colIcon = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-			this.icEditors = new DevExpress.Utils.ImageCollection();
+			this.icEditors = new DevExpress.Utils.ImageCollection(this.components);
 			this.colPriority = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
 			this.colOverdue = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -57,7 +58,7 @@ namespace TaskManager.Source.Forms
 			this.colCreator = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colCategory = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox4 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-			this.icCategory = new DevExpress.Utils.ImageCollection();
+			this.icCategory = new DevExpress.Utils.ImageCollection(this.components);
 			this.colDescription = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemRichTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
 			this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -73,12 +74,12 @@ namespace TaskManager.Source.Forms
 			this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
 			this.colFlagStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox5 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-			this.ilColumns = new System.Windows.Forms.ImageList();
+			this.ilColumns = new System.Windows.Forms.ImageList(this.components);
 			this.repositoryItemTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemTrackBar();
 			this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-			this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-			this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-			this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiOpen = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
+			this.bbiSaveAs = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiNewTask = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiEditTask = new DevExpress.XtraBars.BarButtonItem();
 			this.bbiDeleteTask = new DevExpress.XtraBars.BarButtonItem();
@@ -483,9 +484,9 @@ namespace TaskManager.Source.Forms
 			this.ribbonControl1.ExpandCollapseItem.Id = 0;
 			this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
+            this.bbiOpen,
+            this.bbiSave,
+            this.bbiSaveAs,
             this.bbiNewTask,
             this.bbiEditTask,
             this.bbiDeleteTask,
@@ -510,30 +511,30 @@ namespace TaskManager.Source.Forms
 			this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
 			this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
 			// 
-			// barButtonItem1
+			// bbiOpen
 			// 
-			this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
-			this.barButtonItem1.Id = 1;
-			this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
-			resources.ApplyResources(this.barButtonItem1, "barButtonItem1");
-			this.barButtonItem1.Name = "barButtonItem1";
-			this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+			resources.ApplyResources(this.bbiOpen, "bbiOpen");
+			this.bbiOpen.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiOpen.Glyph")));
+			this.bbiOpen.Id = 1;
+			this.bbiOpen.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiOpen.LargeGlyph")));
+			this.bbiOpen.Name = "bbiOpen";
+			this.bbiOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
 			// 
-			// barButtonItem2
+			// bbiSave
 			// 
-			this.barButtonItem2.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.Glyph")));
-			this.barButtonItem2.Id = 2;
-			this.barButtonItem2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.LargeGlyph")));
-			resources.ApplyResources(this.barButtonItem2, "barButtonItem2");
-			this.barButtonItem2.Name = "barButtonItem2";
+			resources.ApplyResources(this.bbiSave, "bbiSave");
+			this.bbiSave.Glyph = global::TaskManager.Properties.Resources.Save_16x16;
+			this.bbiSave.Id = 2;
+			this.bbiSave.LargeGlyph = global::TaskManager.Properties.Resources.Save_32x32;
+			this.bbiSave.Name = "bbiSave";
 			// 
-			// barButtonItem3
+			// bbiSaveAs
 			// 
-			this.barButtonItem3.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.Glyph")));
-			this.barButtonItem3.Id = 3;
-			this.barButtonItem3.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.LargeGlyph")));
-			resources.ApplyResources(this.barButtonItem3, "barButtonItem3");
-			this.barButtonItem3.Name = "barButtonItem3";
+			resources.ApplyResources(this.bbiSaveAs, "bbiSaveAs");
+			this.bbiSaveAs.Glyph = global::TaskManager.Properties.Resources.SaveAll_32x32;
+			this.bbiSaveAs.Id = 3;
+			this.bbiSaveAs.LargeGlyph = global::TaskManager.Properties.Resources.SaveAll_32x32;
+			this.bbiSaveAs.Name = "bbiSaveAs";
 			// 
 			// bbiNewTask
 			// 
@@ -691,10 +692,11 @@ namespace TaskManager.Source.Forms
 			// 
 			// ribbonPageGroup1
 			// 
-			this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-			this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-			this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
+			this.ribbonPageGroup1.ItemLinks.Add(this.bbiOpen);
+			this.ribbonPageGroup1.ItemLinks.Add(this.bbiSave);
+			this.ribbonPageGroup1.ItemLinks.Add(this.bbiSaveAs);
 			this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+			resources.ApplyResources(this.ribbonPageGroup1, "ribbonPageGroup1");
 			// 
 			// rpgTasks
 			// 
@@ -757,7 +759,7 @@ namespace TaskManager.Source.Forms
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
 		private DevExpress.XtraGrid.GridControl gridControl1;
-		private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+		private DevExpress.XtraBars.BarButtonItem bbiOpen;
 		private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox1;
 		private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox2;
 		private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox repositoryItemImageComboBox3;
@@ -791,8 +793,8 @@ namespace TaskManager.Source.Forms
 		private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
 		private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
 		private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-		private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-		private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+		private DevExpress.XtraBars.BarButtonItem bbiSave;
+		private DevExpress.XtraBars.BarButtonItem bbiSaveAs;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpTasks;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTasks;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgFollowUp;
