@@ -156,7 +156,7 @@ Left:	12 mm	Right:	12 mm</value>
     <value>Uncollated</value>
   </data>
   <data name="PriorityLow" xml:space="preserve">
-    <value>Low</value>
+    <value>Низкий</value>
   </data>
   <data name="MailName" xml:space="preserve">
     <value>Mail</value>
@@ -204,7 +204,7 @@ Left:	12 mm	Right:	12 mm</value>
     <value>MyFeed</value>
   </data>
   <data name="TaskStatusWaitingOnSomeoneElse" xml:space="preserve">
-    <value>Ожидание исполнителей</value>
+    <value>Ожидание</value>
   </data>
   <data name="TwoSideDescription" xml:space="preserve">
     <value>Reload paper when prompted to print the second side</value>
@@ -396,7 +396,7 @@ Left:	12 mm	Right:	12 mm</value>
     <value>..\Resources\reminder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PriorityHigh" xml:space="preserve">
-    <value>High</value>
+    <value>Высокий</value>
   </data>
   <data name="ColorMixer_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ColorMixer_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -470,7 +470,7 @@ If this item is marked as read mark it as though you haven't read it yet.</value
     <value>Clear the applied filter.</value>
   </data>
   <data name="PriorityMedium" xml:space="preserve">
-    <value>Medium</value>
+    <value>Обычный</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Message</value>

@@ -29,7 +29,7 @@ namespace TaskManager.Source.Utils
 		/// <summary>
 		/// Версия программы
 		/// </summary>
-		public static string Version { get { return "1.1"; } }
+		public static string Version { get { return "1.2"; } }
 		/// <summary>
 		/// Название программы
 		/// </summary>
@@ -199,6 +199,7 @@ namespace TaskManager.Source.Utils
 	{
 		public static void SetFindControlImages(GridControl grid)
 		{
+			grid.ForceInitialize();
 			FindControl fControl = null;
 			foreach( Control ctrl in grid.Controls )
 			{

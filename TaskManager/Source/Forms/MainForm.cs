@@ -8,6 +8,7 @@ using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using TaskManager.Source.Data;
@@ -17,6 +18,7 @@ namespace TaskManager.Source.Forms
 {
 	public partial class MainForm : DevExpress.XtraEditors.XtraForm
 	{
+		bool firstStart = true;
 		TaskBase taskBase = new TaskBase(string.Empty);
 		Task CurrentTask
 		{
@@ -40,8 +42,10 @@ namespace TaskManager.Source.Forms
 			UpdateCurrentTask();
 			Text = ProgramData.Caption;
 			EnumProcessingHelper.RegisterEnum(typeof(TaskStatus));
+			
 			Thread.Sleep(1800);
 			SplashScreenManager.CloseForm();
+
 		}
 
 		internal void EnabledFlagButtons(bool enabledCurrentTask, bool enabledEdit, Task task)
@@ -84,7 +88,9 @@ namespace TaskManager.Source.Forms
 			if( e.RowHandle < 0 ) return;
 			Task currentTask = gridView1.GetRow(e.RowHandle) as Task;
 			if( currentTask == null ) return;
-			if( currentTask.Status == TaskStatus.Completed )
+			if( currentTask.Status == TaskStatus.Completed 
+				|| currentTask.Status == TaskStatus.TransferredTo 
+				|| currentTask.Status == TaskStatus.Canceled)
 			{
 				e.Appearance.Font = FontResources.StrikeoutFont;
 				e.Appearance.ForeColor = Utils.ColorUtils.DisabledTextColor;
@@ -105,6 +111,11 @@ namespace TaskManager.Source.Forms
 				e.Appearance.Font = FontResources.BoldFont;
 			if( currentTask.Overdue )
 				e.Appearance.ForeColor = Utils.ColorUtils.CriticalColor;
+			if(e.Column == colSubject)
+				e.Appearance.Font = FontResources.BoldFont;
+			if(e.Column == colPriority)
+			{
+			}
 		}
 		private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
 		{
@@ -181,7 +192,7 @@ namespace TaskManager.Source.Forms
 
 		private void rgbiCurrentViewTasks_GalleryItemClick(object sender, GalleryItemClickEventArgs e)
 		{
-			ButtonClick(string.Format("{0}", e.Item.Tag));
+			ViewButtonClick(string.Format("{0}", e.Item.Tag));
 		}
 		private void rgbiCurrentView_GalleryInitDropDownGallery(object sender, InplaceGalleryEventArgs e)
 		{
@@ -189,7 +200,7 @@ namespace TaskManager.Source.Forms
 			e.PopupGallery.GalleryDropDown.ItemLinks.Add(bbiSaveCurrentView);
 			e.PopupGallery.SynchWithInRibbonGallery = true;
 		}
-		protected internal void ButtonClick(string tag)
+		protected internal void ViewButtonClick(string tag)
 		{
 			gridView1.BeginUpdate();
 			try
@@ -218,7 +229,7 @@ namespace TaskManager.Source.Forms
 						break;
 					case TagResources.TaskPrioritized:
 						colPriority.Group();
-						colCategory.Group();
+						//colCategory.Group();
 						colDueDate.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
 						//colCreated.Visible = false;
 						break;
@@ -362,6 +373,20 @@ namespace TaskManager.Source.Forms
 		private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			taskBase.Save();
+		}
+
+		private void gridControl1_Resize(object sender, EventArgs e)
+		{
+			var i = 0;
+
+		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			if( firstStart )
+				GridUtils.SetFindControlImages(gridControl1);
+			else
+				firstStart = false;
 		}
 	}
 }

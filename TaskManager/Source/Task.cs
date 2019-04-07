@@ -94,7 +94,14 @@ namespace TaskManager.Source.Data
 				else Status = TaskStatus.NotStarted;
 			}
 		}
-		public int Icon { get { return Complete ? 0 : 1; } }
+		public int Icon {
+			get {
+				switch( Status )
+				{
+
+				}
+				return Complete ? 0 : 1;
+			} }
 		public FlagStatus FlagStatus
 		{
 			get

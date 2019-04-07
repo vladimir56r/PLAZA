@@ -2266,7 +2266,7 @@ namespace TaskManager.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на High.
+        ///   Ищет локализованную строку, похожую на Высокий.
         /// </summary>
         internal static string PriorityHigh {
             get {
@@ -2275,7 +2275,7 @@ namespace TaskManager.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Low.
+        ///   Ищет локализованную строку, похожую на Низкий.
         /// </summary>
         internal static string PriorityLow {
             get {
@@ -2284,7 +2284,7 @@ namespace TaskManager.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Medium.
+        ///   Ищет локализованную строку, похожую на Обычный.
         /// </summary>
         internal static string PriorityMedium {
             get {
@@ -2816,7 +2816,7 @@ namespace TaskManager.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Ожидание исполнителей.
+        ///   Ищет локализованную строку, похожую на Ожидание.
         /// </summary>
         internal static string TaskStatusWaitingOnSomeoneElse {
             get {
