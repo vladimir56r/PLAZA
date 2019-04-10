@@ -9,7 +9,7 @@ using TaskManager.Source.Utils;
 namespace TaskManager.Source.Data
 {
 	[Flags]
-	public enum TaskStatus { NotStarted, InProgress, Completed, Deferred, Canceled, TransferredTo, WaitingOnSomeoneElse };
+	public enum TaskStatus { InProgress, NotStarted, WaitingOnSomeoneElse, Deferred, Completed, Canceled, TransferredTo};
 	public enum FlagStatus { Today, Tomorrow, ThisWeek, NextWeek, NoDate, Custom, Completed };
 	public enum TaskPriority { Low, Normal, High }
 
@@ -52,6 +52,7 @@ namespace TaskManager.Source.Data
 		public DateTime? CompletedDate { get { return completedDate; } set { completedDate = value; } }
 		public string Subject { get { return subject; } set { subject = value; } }
 		public string Description { get { return description; } set { description = value; } }
+		public int IntStatus { get { return (int)Status; } }
 		public TaskStatus Status
 		{
 			get { return status; }

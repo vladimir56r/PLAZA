@@ -29,7 +29,7 @@ namespace TaskManager.Source.Utils
 		/// <summary>
 		/// Версия программы
 		/// </summary>
-		public static string Version { get { return "1.2"; } }
+		public static string Version { get { return "1.3"; } }
 		/// <summary>
 		/// Название программы
 		/// </summary>

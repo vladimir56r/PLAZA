@@ -44,6 +44,7 @@ namespace TaskManager.Source.Forms
 			DevExpress.XtraBars.Ribbon.GalleryItem galleryItem8 = new DevExpress.XtraBars.Ribbon.GalleryItem();
 			this.gridControl1 = new DevExpress.XtraGrid.GridControl();
 			this.gridView1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+			this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
 			this.colComplete = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colIcon = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
@@ -51,20 +52,25 @@ namespace TaskManager.Source.Forms
 			this.colPriority = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
 			this.colOverdue = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+			this.colIntStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+			this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
 			this.colSubject = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colExecutor = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colCreator = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colCategory = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colDescription = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemRichTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
+			this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
 			this.colCreated = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
 			this.colPercent = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemProgressBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemProgressBar();
+			this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
 			this.colStartDate = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colDueDate = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.colCompleted = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+			this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
 			this.colFlagStatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
 			this.repositoryItemImageComboBox5 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
 			this.ilColumns = new System.Windows.Forms.ImageList(this.components);
@@ -93,11 +99,6 @@ namespace TaskManager.Source.Forms
 			this.rpgFollowUp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.rpdCurrentViewTasks = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.pmFlagStatus = new DevExpress.XtraBars.PopupMenu(this.components);
-			this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-			this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-			this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-			this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-			this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
 			((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageComboBox2)).BeginInit();
@@ -171,7 +172,8 @@ namespace TaskManager.Source.Forms
             this.colCategory,
             this.colFlagStatus,
             this.colOverdue,
-            this.colDescription});
+			this.colIntStatus,
+			this.colDescription});
 			this.gridView1.GridControl = this.gridControl1;
 			this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Subject", null, "")});
@@ -191,8 +193,6 @@ namespace TaskManager.Source.Forms
 			this.gridView1.OptionsView.ShowIndicator = false;
 			this.gridView1.RowHeight = 20;
 			this.gridView1.RowSeparatorHeight = 1;
-			this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDueDate, DevExpress.Data.ColumnSortOrder.Ascending)});
 			this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
 			this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
 			this.gridView1.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridView1_RowCellStyle);
@@ -203,6 +203,21 @@ namespace TaskManager.Source.Forms
 			this.gridView1.ColumnFilterChanged += new System.EventHandler(this.gridView1_ColumnFilterChanged);
 			this.gridView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView1_CustomColumnDisplayText);
 			this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+			// 
+			// gridBand1
+			// 
+			this.gridBand1.AppearanceHeader.Options.UseTextOptions = true;
+			this.gridBand1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridBand1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.gridBand1.Columns.Add(this.colComplete);
+			this.gridBand1.Columns.Add(this.colIcon);
+			this.gridBand1.Columns.Add(this.colPriority);
+			this.gridBand1.Columns.Add(this.colOverdue);
+			this.gridBand1.Columns.Add(this.colIntStatus);
+			this.gridBand1.Name = "gridBand1";
+			this.gridBand1.OptionsBand.FixedWidth = true;
+			this.gridBand1.VisibleIndex = 0;
+			this.gridBand1.Width = 104;
 			// 
 			// colComplete
 			// 
@@ -219,7 +234,7 @@ namespace TaskManager.Source.Forms
 			this.colComplete.OptionsColumn.ShowInCustomizationForm = false;
 			this.colComplete.OptionsFilter.AllowFilter = false;
 			this.colComplete.RowCount = 3;
-			this.colComplete.ToolTip = "Complete";
+			this.colComplete.ToolTip = "Выполнено";
 			this.colComplete.Visible = true;
 			this.colComplete.Width = 32;
 			// 
@@ -248,13 +263,20 @@ namespace TaskManager.Source.Forms
 			this.repositoryItemImageComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph)});
 			this.repositoryItemImageComboBox2.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.Canceled, 2),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.Completed, 3),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((TaskManager.Source.Data.TaskStatus)((TaskManager.Source.Data.TaskStatus.InProgress | TaskManager.Source.Data.TaskStatus.Completed))), 4),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.InProgress, 5),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.NotStarted, 6),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((TaskManager.Source.Data.TaskStatus)((TaskManager.Source.Data.TaskStatus.InProgress | TaskManager.Source.Data.TaskStatus.Canceled))), 7),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((TaskManager.Source.Data.TaskStatus)((TaskManager.Source.Data.TaskStatus.Completed | TaskManager.Source.Data.TaskStatus.Canceled))), 8)});
+			new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.Canceled, 8),
+			new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.TransferredTo, 7),
+			new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.Completed, 6),
+			new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.Deferred, 5),
+			new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.WaitingOnSomeoneElse, 4),
+			new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.NotStarted, 3),
+			new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.InProgress, 2)});
+			//new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.Canceled, 8),
+			//new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.TransferredTo, 7),
+			//new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.Completed, 6),
+			//new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.Deferred, 5),
+			//new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.WaitingOnSomeoneElse, 4),
+			//new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.NotStarted, 3),
+			//new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", TaskManager.Source.Data.TaskStatus.InProgress, 2)});
 			this.repositoryItemImageComboBox2.Name = "repositoryItemImageComboBox2";
 			this.repositoryItemImageComboBox2.SmallImages = this.icEditors;
 			// 
@@ -263,19 +285,19 @@ namespace TaskManager.Source.Forms
 			this.icEditors.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("icEditors.ImageStream")));
 			this.icEditors.Images.SetKeyName(0, "Low16x16.png");
 			this.icEditors.Images.SetKeyName(1, "High16x16.png");
-			this.icEditors.InsertGalleryImage("delete_16x16.png", "images/edit/delete_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/edit/delete_16x16.png"), 2);
-			this.icEditors.Images.SetKeyName(2, "delete_16x16.png");
-			this.icEditors.Images.SetKeyName(3, "Task_16x16.png");
-			this.icEditors.InsertGalleryImage("ganttview_16x16.png", "images/scheduling/ganttview_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/ganttview_16x16.png"), 4);
-			this.icEditors.Images.SetKeyName(4, "ganttview_16x16.png");
-			this.icEditors.InsertGalleryImage("play_16x16.png", "images/arrows/play_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/play_16x16.png"), 5);
-			this.icEditors.Images.SetKeyName(5, "play_16x16.png");
-			this.icEditors.InsertGalleryImage("boreport_16x16.png", "images/business%20objects/boreport_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/business%20objects/boreport_16x16.png"), 6);
-			this.icEditors.Images.SetKeyName(6, "boreport_16x16.png");
+			this.icEditors.InsertGalleryImage("play_16x16.png", "images/arrows/play_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/arrows/play_16x16.png"), 2);
+			this.icEditors.Images.SetKeyName(2, "play_16x16.png");
+			this.icEditors.InsertGalleryImage("boreport_16x16.png", "images/business%20objects/boreport_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/business%20objects/boreport_16x16.png"), 3);
+			this.icEditors.Images.SetKeyName(3, "boreport_16x16.png");
+			this.icEditors.InsertGalleryImage("time_16x16.png", "images/scheduling/time_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/time_16x16.png"), 4);
+			this.icEditors.Images.SetKeyName(4, "time_16x16.png");
+			this.icEditors.InsertGalleryImage("ganttview_16x16.png", "images/scheduling/ganttview_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/ganttview_16x16.png"), 5);
+			this.icEditors.Images.SetKeyName(5, "ganttview_16x16.png");
+			this.icEditors.Images.SetKeyName(6, "Task_16x16.png");
 			this.icEditors.InsertGalleryImage("boperson_16x16.png", "images/business%20objects/boperson_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/business%20objects/boperson_16x16.png"), 7);
 			this.icEditors.Images.SetKeyName(7, "boperson_16x16.png");
-			this.icEditors.InsertGalleryImage("time_16x16.png", "images/scheduling/time_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/scheduling/time_16x16.png"), 8);
-			this.icEditors.Images.SetKeyName(8, "time_16x16.png");
+			this.icEditors.InsertGalleryImage("delete_16x16.png", "images/edit/delete_16x16.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/edit/delete_16x16.png"), 8);
+			this.icEditors.Images.SetKeyName(8, "delete_16x16.png");
 			// 
 			// colPriority
 			// 
@@ -305,6 +327,27 @@ namespace TaskManager.Source.Forms
 			this.colOverdue.FieldName = "Overdue";
 			this.colOverdue.Name = "colOverdue";
 			this.colOverdue.OptionsColumn.ShowInCustomizationForm = false;
+			// 
+			// colIntStatus
+			// 
+			this.colIntStatus.FieldName = "IntStatus";
+			this.colIntStatus.Name = "colIntStatus";
+			this.colIntStatus.OptionsColumn.ShowInCustomizationForm = false;
+			// 
+			// gridBand2
+			// 
+			this.gridBand2.AppearanceHeader.Options.UseTextOptions = true;
+			this.gridBand2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridBand2.Caption = "Основные параметры";
+			this.gridBand2.Columns.Add(this.colSubject);
+			this.gridBand2.Columns.Add(this.colExecutor);
+			this.gridBand2.Columns.Add(this.colCreator);
+			this.gridBand2.Columns.Add(this.colCategory);
+			this.gridBand2.Columns.Add(this.colDescription);
+			this.gridBand2.Name = "gridBand2";
+			this.gridBand2.OptionsBand.AllowMove = false;
+			this.gridBand2.VisibleIndex = 1;
+			this.gridBand2.Width = 656;
 			// 
 			// colSubject
 			// 
@@ -371,6 +414,21 @@ namespace TaskManager.Source.Forms
 			this.repositoryItemRichTextEdit1.ReadOnly = true;
 			this.repositoryItemRichTextEdit1.ShowCaretInReadOnly = false;
 			// 
+			// gridBand3
+			// 
+			this.gridBand3.AppearanceHeader.Options.UseTextOptions = true;
+			this.gridBand3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridBand3.Caption = "Состояние задачи";
+			this.gridBand3.Columns.Add(this.colCreated);
+			this.gridBand3.Columns.Add(this.colStatus);
+			this.gridBand3.Columns.Add(this.colPercent);
+			this.gridBand3.Name = "gridBand3";
+			this.gridBand3.OptionsBand.AllowMove = false;
+			this.gridBand3.OptionsBand.AllowSize = false;
+			this.gridBand3.OptionsBand.FixedWidth = true;
+			this.gridBand3.VisibleIndex = 2;
+			this.gridBand3.Width = 150;
+			// 
 			// colCreated
 			// 
 			this.colCreated.Caption = "Добавлено";
@@ -419,6 +477,21 @@ namespace TaskManager.Source.Forms
 			this.repositoryItemProgressBar1.Name = "repositoryItemProgressBar1";
 			this.repositoryItemProgressBar1.ShowTitle = true;
 			// 
+			// gridBand4
+			// 
+			this.gridBand4.AppearanceHeader.Options.UseTextOptions = true;
+			this.gridBand4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridBand4.Caption = "Время";
+			this.gridBand4.Columns.Add(this.colStartDate);
+			this.gridBand4.Columns.Add(this.colDueDate);
+			this.gridBand4.Columns.Add(this.colCompleted);
+			this.gridBand4.Name = "gridBand4";
+			this.gridBand4.OptionsBand.AllowMove = false;
+			this.gridBand4.OptionsBand.AllowSize = false;
+			this.gridBand4.OptionsBand.FixedWidth = true;
+			this.gridBand4.VisibleIndex = 3;
+			this.gridBand4.Width = 92;
+			// 
 			// colStartDate
 			// 
 			this.colStartDate.AppearanceHeader.Options.UseTextOptions = true;
@@ -458,6 +531,16 @@ namespace TaskManager.Source.Forms
 			this.colCompleted.RowIndex = 2;
 			this.colCompleted.Visible = true;
 			this.colCompleted.Width = 92;
+			// 
+			// gridBand5
+			// 
+			this.gridBand5.Columns.Add(this.colFlagStatus);
+			this.gridBand5.Name = "gridBand5";
+			this.gridBand5.OptionsBand.AllowMove = false;
+			this.gridBand5.OptionsBand.AllowSize = false;
+			this.gridBand5.OptionsBand.FixedWidth = true;
+			this.gridBand5.VisibleIndex = 4;
+			this.gridBand5.Width = 35;
 			// 
 			// colFlagStatus
 			// 
@@ -785,75 +868,6 @@ namespace TaskManager.Source.Forms
 			this.pmFlagStatus.Name = "pmFlagStatus";
 			this.pmFlagStatus.Ribbon = this.ribbonControl1;
 			// 
-			// gridBand1
-			// 
-			this.gridBand1.AppearanceHeader.Options.UseTextOptions = true;
-			this.gridBand1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-			this.gridBand1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-			this.gridBand1.Columns.Add(this.colComplete);
-			this.gridBand1.Columns.Add(this.colIcon);
-			this.gridBand1.Columns.Add(this.colPriority);
-			this.gridBand1.Columns.Add(this.colOverdue);
-			this.gridBand1.Name = "gridBand1";
-			this.gridBand1.OptionsBand.FixedWidth = true;
-			this.gridBand1.VisibleIndex = 0;
-			this.gridBand1.Width = 104;
-			// 
-			// gridBand2
-			// 
-			this.gridBand2.AppearanceHeader.Options.UseTextOptions = true;
-			this.gridBand2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-			this.gridBand2.Caption = "Основные параметры";
-			this.gridBand2.Columns.Add(this.colSubject);
-			this.gridBand2.Columns.Add(this.colExecutor);
-			this.gridBand2.Columns.Add(this.colCreator);
-			this.gridBand2.Columns.Add(this.colCategory);
-			this.gridBand2.Columns.Add(this.colDescription);
-			this.gridBand2.Name = "gridBand2";
-			this.gridBand2.OptionsBand.AllowMove = false;
-			this.gridBand2.VisibleIndex = 1;
-			this.gridBand2.Width = 656;
-			// 
-			// gridBand3
-			// 
-			this.gridBand3.AppearanceHeader.Options.UseTextOptions = true;
-			this.gridBand3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-			this.gridBand3.Caption = "Состояние задачи";
-			this.gridBand3.Columns.Add(this.colCreated);
-			this.gridBand3.Columns.Add(this.colStatus);
-			this.gridBand3.Columns.Add(this.colPercent);
-			this.gridBand3.Name = "gridBand3";
-			this.gridBand3.OptionsBand.AllowMove = false;
-			this.gridBand3.OptionsBand.AllowSize = false;
-			this.gridBand3.OptionsBand.FixedWidth = true;
-			this.gridBand3.VisibleIndex = 2;
-			this.gridBand3.Width = 150;
-			// 
-			// gridBand4
-			// 
-			this.gridBand4.AppearanceHeader.Options.UseTextOptions = true;
-			this.gridBand4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-			this.gridBand4.Caption = "Время";
-			this.gridBand4.Columns.Add(this.colStartDate);
-			this.gridBand4.Columns.Add(this.colDueDate);
-			this.gridBand4.Columns.Add(this.colCompleted);
-			this.gridBand4.Name = "gridBand4";
-			this.gridBand4.OptionsBand.AllowMove = false;
-			this.gridBand4.OptionsBand.AllowSize = false;
-			this.gridBand4.OptionsBand.FixedWidth = true;
-			this.gridBand4.VisibleIndex = 3;
-			this.gridBand4.Width = 92;
-			// 
-			// gridBand5
-			// 
-			this.gridBand5.Columns.Add(this.colFlagStatus);
-			this.gridBand5.Name = "gridBand5";
-			this.gridBand5.OptionsBand.AllowMove = false;
-			this.gridBand5.OptionsBand.AllowSize = false;
-			this.gridBand5.OptionsBand.FixedWidth = true;
-			this.gridBand5.VisibleIndex = 4;
-			this.gridBand5.Width = 35;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -908,6 +922,7 @@ namespace TaskManager.Source.Forms
 		private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gridView1;
 		private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colDescription;
 		private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colOverdue;
+		private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colIntStatus;
 		private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colFlagStatus;
 		private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colCategory;
 		private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colCompleted;

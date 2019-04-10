@@ -42,7 +42,6 @@ namespace TaskManager.Source.Forms
 			UpdateCurrentTask();
 			Text = ProgramData.Caption;
 			EnumProcessingHelper.RegisterEnum(typeof(TaskStatus));
-			
 			Thread.Sleep(1800);
 			SplashScreenManager.CloseForm();
 
@@ -113,7 +112,7 @@ namespace TaskManager.Source.Forms
 				e.Appearance.ForeColor = Utils.ColorUtils.CriticalColor;
 			if(e.Column == colSubject)
 				e.Appearance.Font = FontResources.BoldFont;
-			if(e.Column == colPriority)
+			if(e.Column == colIcon)
 			{
 			}
 		}
@@ -240,6 +239,8 @@ namespace TaskManager.Source.Forms
 						//colCompleted.Visible = false;
 						break;
 					case TagResources.TaskSimpleList:
+						colOverdue.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+						colIntStatus.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
 						colDueDate.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
 						//colPriority.Visible = false;
 						//colCategory.Visible = false;
@@ -384,7 +385,11 @@ namespace TaskManager.Source.Forms
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			if( firstStart )
+			{
 				GridUtils.SetFindControlImages(gridControl1);
+				ViewButtonClick(TagResources.TaskSimpleList);
+				//(gridView1.DataSource as List<Task>).OrderBy((Task x, Task y) => x.Status > y.Status ? 1 : -1)
+			}
 			else
 				firstStart = false;
 		}
